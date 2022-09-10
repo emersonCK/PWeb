@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContatosController;
+use App\Http\Controllers\CursosController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('site.home');
-})->name('site.home');
 
-Route::get('/cursos', function () {
-    return view('site.cursos');
-})->name('site.cursos');
+Route::get('/',[HomeController::class,'index'])->name('site.home');
+Route::get('/cursos', [CursosController::class, 'index'])->name('site.cursos');
+Route::get('/contatos', [ContatosController::class, 'index'])->name('site.contatos');
 
-Route::get('/contatos', function () {
-    return view('site.contatos');
-})->name('site.contatos');
+
+// Route::get('/', function () {
+//     return view('site.home');
+// })->name('site.home');
+
+// Route::get('/cursos', function () {
+//     return view('site.cursos');
+// })->name('site.cursos');
+
+// Route::get('/contatos', function () {
+//     return view('site.contatos');
+// })->name('site.contatos');

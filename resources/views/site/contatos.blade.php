@@ -9,7 +9,8 @@
 </div>
 
 <div class="container">
-    <form>
+    <form method="GET">
+        @csrf
         <div class="form-group">
           <label for="emailContato">Email:</label>
           <input type="email" class="form-control" id="emailContato" name="emailContato" placeholder="nome@email.com">
@@ -29,5 +30,13 @@
           <button type="submit" class="btn btn-primary mt-2">Enviar</button>
         </div>
     </form>
+</div>
+<hr>
+<div class="container">
+    @if ($email)
+    <p>Email: {{ $email }}</p>
+    <p>Tipo Contato: {{ $tipo }}</p>
+    <p>Mensagem: {{ $mensagem }}</p>
+    @endif
 </div>
 @endsection
