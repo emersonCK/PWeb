@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContatosController;
+use App\Http\Controllers\CursoManagerController;
 use App\Http\Controllers\CursosController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,5 @@ Route::get('/cursos', [CursosController::class, 'index'])->name('site.cursos');
 Route::get('/contatos', [ContatosController::class, 'index'])->name('site.contatos');
 
 Route::post('/contatos', [ContatosController::class, 'store'])->name('site.contatos');
+
+Route::resource('cursosmanager', CursoManagerController::class);
