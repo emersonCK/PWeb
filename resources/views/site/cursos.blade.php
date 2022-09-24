@@ -1,4 +1,4 @@
-@extends('site.master.layout')
+@extends('site.layout')
 
 @section('content')
 
@@ -50,7 +50,6 @@
           </figure>
         </div>
       </div>
-
     <!-- /END THE FEATURETTES -->
 </div>
 
