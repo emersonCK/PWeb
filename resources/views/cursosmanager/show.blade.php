@@ -21,10 +21,10 @@
                 {{ $curso->descricao }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-4">
             <div class="form-group">
                 <strong>Imagem:</strong>
-                {{ $curso->imagem }}
+                <img src="{{ asset($curso->imagem) }}" class="figure-img img-fluid rounded" alt="Imagem do Curso">
             </div>
         </div>
     </div>

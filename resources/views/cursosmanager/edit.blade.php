@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form action="{{ route('cursosmanager.update', $curso) }}" method="POST">
+    <form action="{{ route('cursosmanager.update', $curso) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -40,7 +40,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Imagem:</strong>
-                    <input type="input" name="imagem" value="{{ $curso->imagem }}" class="form-control" placeholder="Imagem">
+                    <!-- <img src="{{ asset($curso->imagem) }}" class="figure-img img-fluid rounded" alt="Imagem do Curso"> -->
+                    <input type="file" name="imagem" value="images/cursos/f7a24c948d74e50b595edf4efef2e5da.png" class="form-control" placeholder="Imagem">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -44,7 +44,27 @@ class CursoManagerController extends Controller
             'imagem' => 'required'
         ]);
 
-        Curso::create($request->all());
+        //Curso::create($request->all());
+        $curso = new Curso;
+        $curso->nome = $request->nome;
+        $curso->descricao = $request->descricao;
+        $curso->imagem = "";
+        $dirImage = "images/cursos/";
+
+        if ($request->hasFile('imagem')
+                && $request->file('imagem')->isValid()) {
+
+            $requestImage = $request->imagem;
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName()
+                            . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path($dirImage), $imageName);
+            $curso->imagem = $dirImage . $imageName;
+        }
+
+        $curso->save();
 
         return redirect()->route('cursosmanager.index')->with('success','Curso criado com sucesso!');
     }
@@ -58,6 +78,7 @@ class CursoManagerController extends Controller
     public function show($id)
     {
         $curso = Curso::findOrFail($id);
+        // $curso->image = file($curso->image);
 
         return view('cursosmanager.show',compact('curso'));
     }
@@ -90,10 +111,28 @@ class CursoManagerController extends Controller
             'imagem' => 'required'
         ]);
 
-        $data = $request->all();
+        // $data = $request->all();
         
-        Curso::findOrFail($id)->update($data);
+        $curso = Curso::findOrFail($id);
+        $curso->nome = $request->nome;
+        $curso->descricao = $request->descricao;
+        $curso->imagem = "";
+        $dirImage = "images/cursos/";
 
+        if ($request->hasFile('imagem')
+                && $request->file('imagem')->isValid()) {
+
+            $requestImage = $request->imagem;
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName()
+                            . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path($dirImage), $imageName);
+            $curso->imagem = $dirImage . $imageName;
+        }
+
+        $curso->save();
         return redirect()->route('cursosmanager.index')->with('success','Curso atualizado com sucesso!');
     }
 
