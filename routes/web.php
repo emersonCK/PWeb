@@ -4,6 +4,8 @@ use App\Http\Controllers\ContatosController;
 use App\Http\Controllers\CursoManagerController;
 use App\Http\Controllers\CursosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContatoManagerController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,5 @@ Route::get('/contatos', [ContatosController::class, 'index'])->name('site.contat
 Route::post('/contatos', [ContatosController::class, 'store'])->name('site.contatos');
 
 Route::resource('cursosmanager', CursoManagerController::class);
+
+Route::resource('/contatosmanager', ContatoManagerController::class);
