@@ -8,7 +8,7 @@ class ContatoManagerController extends Controller
 {
     public function index()
     {
-        $contatos = Contato::orderBy('nome', 'ASC')->paginate(5);
+        $contatos = Contato::orderBy('created_at', 'ASC')->paginate(5);
 
         return view('contatosmanager.index', compact('contatos'))->with('i', (request()->input('page', 1) - 1) * 5);
     }

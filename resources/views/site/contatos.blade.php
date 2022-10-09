@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="nomeContato">Nome:</label>
             <input type="text" class="form-control" id="nomeContato" name="nomeContato">
-          </div>
+        </div>
         <div class="form-group">
           <label for="emailContato">Email:</label>
           <input type="email" class="form-control" id="emailContato" name="emailContato" placeholder="fulano@email.com">
@@ -38,6 +38,7 @@
         </div>
         <button type="submit" class="btn btn-primary mb-2" value="Enviar">Enviar</button>
     </form>
+    <a class="btn btn-success" href="{{ route('contatosmanager.index') }}">Visualizar Mensagens</a>
 </div>
 <hr>
 
